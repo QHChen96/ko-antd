@@ -1,0 +1,196 @@
+[{
+  "attributeId": 1,
+  "displayName": "材质",
+  "attributeName": "材质",
+  "categoryId": 1,
+  "attributeType": "STRING",
+  "inputType": "SINGLE_SELECT",
+  "options": [
+    {
+      "optionId": 1,
+      "optionValue": "羊毛",
+      "displayValue": "羊毛",
+      "attributeId": 1,
+      "sortWeight": 1
+    }, {
+      "optionId": 2,
+      "optionValue": "腈纶",
+      "displayValue": "腈纶",
+      "attributeId": 1,
+      "sortWeight": 2
+    }, {
+      "optionId": 3,
+      "optionValue": "蚕丝",
+      "displayValue": "蚕丝",
+      "attributeId": 1,
+      "sortWeight": 3
+    }, {
+      "optionId": 4,
+      "optionValue": "锦纶",
+      "displayValue": "锦纶",
+      "attributeId": 1,
+      "sortWeight": 4
+    }, {
+      "optionId": 5,
+      "optionValue": "兔毛",
+      "displayValue": "兔毛",
+      "attributeId": 1,
+      "sortWeight": 5
+    }, {
+      "optionId": 6,
+      "optionValue": "麻",
+      "displayValue": "麻",
+      "attributeId": 1,
+      "sortWeight": 6
+    }
+  ],
+  "status": "NORMAL",
+  "isSaleProp": false,
+  "isVisible": true,
+  "isInSearch": true,
+  "isMandatory": true
+}, {
+  "attributeId": 2,
+  "displayName": "风格",
+  "attributeName": "风格",
+  "categoryId": 1,
+  "attributeType": "STRING",
+  "inputType": "SINGLE_SELECT",
+  "options": [
+    {
+      "optionId": 21,
+      "optionValue": "原创设计",
+      "displayValue": "原创设计",
+      "attributeId": 2,
+      "sortWeight": 1
+    }, {
+      "optionId": 22,
+      "optionValue": "百搭",
+      "displayValue": "百搭",
+      "attributeId": 2,
+      "sortWeight": 2
+    }, {
+      "optionId": 23,
+      "optionValue": "甜美",
+      "displayValue": "甜美",
+      "attributeId": 2,
+      "sortWeight": 3
+    }, {
+      "optionId": 24,
+      "optionValue": "街头",
+      "displayValue": "街头",
+      "attributeId": 2,
+      "sortWeight": 4
+    }
+  ],
+  "status": "NORMAL",
+  "isSaleProp": false,
+  "isVisible": true,
+  "isInSearch": true,
+  "isMandatory": true
+}, {
+  "attributeId": 3,
+  "displayName": "季节",
+  "attributeName": "季节",
+  "categoryId": 1,
+  "attributeType": "STRING",
+  "inputType": "SINGLE_SELECT",
+  "options": [
+    {
+      "optionId": 31,
+      "optionValue": "春季",
+      "displayValue": "春季",
+      "attributeId": 3,
+      "sortWeight": 1
+    }, {
+      "optionId": 32,
+      "optionValue": "夏季",
+      "displayValue": "夏季",
+      "attributeId": 2,
+      "sortWeight": 2
+    }, {
+      "optionId": 33,
+      "optionValue": "秋季",
+      "displayValue": "秋季",
+      "attributeId": 2,
+      "sortWeight": 3
+    }, {
+      "optionId": 34,
+      "optionValue": "冬季",
+      "displayValue": "冬季",
+      "attributeId": 2,
+      "sortWeight": 4
+    }
+  ],
+  "status": "NORMAL",
+  "isSaleProp": false,
+  "isVisible": true,
+  "isInSearch": true,
+  "isMandatory": true
+}, {
+  "attributeId": 4,
+  "displayName": "版型",
+  "attributeName": "版型",
+  "categoryId": 1,
+  "attributeType": "STRING",
+  "inputType": "SINGLE_SELECT",
+  "options": [
+    {
+      "optionId": 41,
+      "optionValue": "直筒",
+      "displayValue": "直筒",
+      "attributeId": 4,
+      "sortWeight": 1
+    }, {
+      "optionId": 42,
+      "optionValue": "修身",
+      "displayValue": "修身",
+      "attributeId": 4,
+      "sortWeight": 1
+    }, {
+      "optionId": 43,
+      "optionValue": "高腰型",
+      "displayValue": "高腰型",
+      "attributeId": 4,
+      "sortWeight": 1
+    }
+  ],
+  "status": "NORMAL",
+  "isSaleProp": false,
+  "isVisible": true,
+  "isInSearch": true,
+  "isMandatory": true
+}, {
+  "attributeId": 5,
+  "displayName": "图案",
+  "attributeName": "图案",
+  "categoryId": 1,
+  "attributeType": "STRING",
+  "inputType": "SINGLE_SELECT",
+  "options": [
+    {
+      "optionId": 51,
+      "optionValue": "条纹",
+      "displayValue": "条纹",
+      "attributeId": 5,
+      "sortWeight": 1
+    }, {
+      "optionId": 52,
+      "optionValue": "格子",
+      "displayValue": "格子",
+      "attributeId": 5,
+      "sortWeight": 1
+    }, {
+      "optionId": 53,
+      "optionValue": "纯色",
+      "displayValue": "纯色",
+      "attributeId": 5,
+      "sortWeight": 1
+    }
+  ],
+  "status": "NORMAL",
+  "isSaleProp": false,
+  "isVisible": true,
+  "isInSearch": true,
+  "isMandatory": true
+}]

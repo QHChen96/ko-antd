@@ -1,0 +1,62 @@
+.skuEditor {
+  width: 100%;
+  .space {
+    margin-top: 16px;
+  }
+  .skuTable {
+    width: 100%;
+    .tableCell {
+      :global(.ant-form-item) {
+        margin-bottom: 0px;
+      }
+      height: 32px;
+      line-height: 32px;
+      display: inline-flex;
+      flex: 1;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      text-align: center;
+      border: 1px solid #ebebeb;
+      border-right-width: 0;
+      border-bottom-width: 0;
+    }
+    .tableCells {
+      display: inline-flex;
+      flex: 3;
+      word-break: break-word;
+      :global(.ant-input) {
+        border: none;
+        border-radius: 0;
+      }
+      :global(.ant-input-affix-wrapper) {
+        border: none;
+        border-radius: 0;
+      }
+      .tableCell:last-child {
+        border-right-width: 1px;
+      }
+    }
+    .tableHeader {
+      display: flex;
+      background-color: #fafafa;
+    }
+    .tableBody {
+      display: flex;
+      flex-wrap: wrap;
+      .tableRow {
+        display: flex;
+        width: 100%;
+        &:last-of-type {
+          .tableCell {
+            border-bottom-width: 1px;
+          }
+          .tableCells {
+            border-bottom-width: 1px;
+          }
+        }
+      }
+    }
+  }
+
+}

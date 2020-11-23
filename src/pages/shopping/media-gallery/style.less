@@ -1,0 +1,207 @@
+:global(.ant-layout-content) {
+  height: 100%;
+  margin-bottom: 0;
+  overflow: hidden;
+}
+:global(.ant-pro-grid-content) {
+  height: 100%;
+}
+:global(.ant-pro-grid-content-children) {
+  height: 100%;
+}
+
+.photoSelector {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  .mediaContent {
+    width: 100%;
+    position: absolute;
+    height: calc(100% - 256px);
+    //overflow-y: scroll;
+  }
+}
+.mediaToolbar {
+  height: 64px;
+  line-height: 64px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 8px;
+  .mediaTotal {
+    width: fit-content;
+    font-size: 24px;
+    font-weight: bolder;
+    margin: 0 16px;
+  }
+  .mediaFree {
+    width: 200px;
+    flex-direction: column;
+    display: inline-flex;
+    justify-content: center;
+    font-size: 12px;
+    .mediaFreeProgress {
+      font-size: 12px;
+    }
+    .mediaFreeDesc {
+      line-height: 14px;
+      display: inline-flex;
+      justify-content: space-between;
+      padding-right: 32px;
+    }
+  }
+  .mediaToolbarActions {
+    margin-left: auto;
+    :global(.ant-radio-group) {
+      line-height: 1;
+    }
+  }
+}
+.mediaSelectorFooter {
+  width: 100%;
+  height: 56px;
+  line-height: 56px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: #fff;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  .footerToolbar {
+    flex: 1 1;
+    font-size: 14px;
+    .footerCheckbox {
+      padding-left: 22px;
+    }
+  }
+  .mediaListPagination {
+    justify-items: flex-end;
+    padding-right: 22px;
+  }
+}
+.mSpin {
+  overflow-y: scroll;
+  height: 100%;
+}
+.mediaGrid {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-flow: wrap;
+  margin: 0 auto;
+  height: 100%;
+  overflow-y: scroll;
+  padding: 16px;
+  .mediaGridItem {
+    display: block;
+    flex-basis: 128px;
+    max-width: 128px;
+    flex: 0 0 auto;
+    padding: 8px;
+    margin: 4px;
+    border-radius: 2px;
+    box-sizing: content-box;
+    &:hover {
+      background: #fafafa;
+    }
+    &.mediaGridItemSelected {
+      background: #dcf4ff;
+      &:hover {
+        background: #dcf4ff;
+      }
+    }
+    .mediaImageContainer {
+      position: relative;
+      cursor: pointer;
+      .mediaItemCheck {
+        position: absolute;
+        left: 6px;
+        top: 4px;
+        display: none;
+        &.gridItemSelected {
+          display: block;
+        }
+      }
+      .mediaItemToolbar {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: rgba(0,0,0,.5);
+        height: 24px;
+        display: none;
+        z-index: 1;
+        .mediaItemToolbarAction {
+          display: block;
+          flex: 1;
+        }
+      }
+      &:hover {
+        & .mediaItemCheck {
+          display: block;
+        }
+        & > .mediaItemToolbar {
+          display: inline-flex;
+          flex-direction: row;
+          justify-content: space-around;
+          align-items: center;
+          color: #fff;
+        }
+      }
+    }
+    .mediaFileName {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}
+.uploadModal {
+  :global {
+    .ant-modal-header {
+      border-bottom: none;
+    }
+    .ant-modal-body{
+      padding-top: 0;
+      padding-bottom: 0;
+      .ant-upload.ant-upload-drag {
+        padding-top: 52px;
+        padding-bottom: 52px;
+      }
+    }
+  }
+  .uploadFooterDesc {
+    padding-top: 18px;
+    padding-bottom: 18px;
+    font-size: 12px;
+  }
+}
+.resultModal {
+  :global {
+    .ant-modal-header {
+      border-bottom: none;
+    }
+    .ant-modal-body{
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  }
+  .uploadResultFooter {
+    display: flex;
+    align-items: center;
+    .uploadResultDesc {
+      width: fit-content;
+    }
+    .uploadResultFooterActions {
+      width: fit-content;
+      margin-left: auto;
+      display: inline-flex;
+      align-items: center;
+      .uploadResultFooterAction {
+        margin-left: 8px;
+      }
+    }
+  }
+}
+

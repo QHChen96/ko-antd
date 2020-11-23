@@ -1,0 +1,33 @@
+.attributeInput {
+  padding: 24px 0px 8px;
+  background-color: #fafafa;
+}
+.attributeItem {
+  display: flex;
+  align-items: center;
+  .itemLabel {
+    width: 120px;
+    text-align: right;
+    margin-right: 8px;
+    &.attributeItemRequired {
+      &::before {
+        content: "*";
+        color: #F6505C;
+        padding-right: 4px;
+      }
+    }
+  }
+  .itemStruct {
+    flex: 1;
+    max-width: 300px;
+    .itemStructContent {
+      width: 240px;
+    }
+    .attributeItemMsg {
+      min-height: 16px;
+      line-height: 16px;
+      margin-bottom: 0;
+    }
+  }
+
+}
