@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import { Button, Input, Tree, Divider, Pagination, Image } from 'antd';
 import { useRequest } from 'ahooks';
 import { RequestData } from '@/typings';
-import { MediaFile, ImageFile, queryPhotos } from '@/services/media';
+import { MediaFile, queryPhotos } from '@/services/media';
 
 // @ts-ignore
 import styles from './style.less';
@@ -35,7 +35,7 @@ const treeData = [
 
 const MediaSelector = (props: MediaSelectorProps) => {
   const { className, onSelect } = props;
-  const { data, loading, pagination, reload } = useRequest<RequestData<MediaFile>>(
+  const { data, pagination } = useRequest<RequestData<MediaFile>>(
     ({ current, pageSize }) => queryPhotos({ current, pageSize }),
     {
       paginated: true,

@@ -7,7 +7,6 @@ import MediaSelector from '@/components/MediaSelector';
 import { ImageFile, MediaFile } from '@/services/media';
 
 // @ts-ignore
-import { keyBy } from 'lodash';
 import style from './style.less';
 
 export interface ImageUploadsProp {
