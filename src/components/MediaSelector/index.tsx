@@ -1,15 +1,19 @@
 import React from 'react';
 
 import classnames from 'classnames';
+import { Button, Input, Tree, Divider, Pagination, Image } from 'antd';
+import { useRequest } from 'ahooks';
+import { RequestData } from '@/typings';
+import { MediaFile, ImageFile, queryPhotos } from '@/services/media';
+
 // @ts-ignore
-import ProCard from '@ant-design/pro-card';
-import { Button, Col, Input, Row, Space, Tree, Divider, Pagination, Image } from 'antd';
 import styles from './style.less';
 
 export interface MediaSelectorProps {
   className?: string;
   style?: React.CSSProperties;
   multiple?: boolean;
+  onSelect?: (mediaFile: MediaFile) => void;
 }
 
 const { Search } = Input;
@@ -30,7 +34,21 @@ const treeData = [
 ];
 
 const MediaSelector = (props: MediaSelectorProps) => {
-  const { className, multiple } = props;
+  const { className, onSelect } = props;
+  const { data, loading, pagination, reload } = useRequest<RequestData<MediaFile>>(
+    ({ current, pageSize }) => queryPhotos({ current, pageSize }),
+    {
+      paginated: true,
+      defaultPageSize: 15,
+    },
+  );
+
+  const handleClickImage = (imageFile: MediaFile) => {
+    if (onSelect) {
+      onSelect(imageFile);
+    }
+  };
+
   return (
     <div className={classnames(className, styles.photoSelector)}>
       <div className={styles.photoSelectorLeft}>
@@ -47,159 +65,22 @@ const MediaSelector = (props: MediaSelectorProps) => {
           <Button type="primary">上传图片</Button>
         </div>
         <div className={styles.photoSelectorContainer}>
-          <div className={styles.imageItem}>
-            <div className={styles.imageBox}>
-              <Image
-                width={100}
-                height={100}
-                src="https://images-na.ssl-images-amazon.com/images/I/81wUWVAiWDL._AC_SL1500_.jpg"
-              />
-            </div>
-            <div className={styles.imageTitle}>图片.jpg</div>
-          </div>
-          <div className={styles.imageItem}>
-            <div className={styles.imageBox}>
-              <Image
-                width={100}
-                height={100}
-                src="https://images-na.ssl-images-amazon.com/images/I/81wUWVAiWDL._AC_SL1500_.jpg"
-              />
-            </div>
-            <div className={styles.imageTitle}>图片.jpg</div>
-          </div>
-          <div className={styles.imageItem}>
-            <div className={styles.imageBox}>
-              <Image
-                width={100}
-                height={100}
-                src="https://images-na.ssl-images-amazon.com/images/I/81wUWVAiWDL._AC_SL1500_.jpg"
-              />
-            </div>
-            <div className={styles.imageTitle}>图片.jpg</div>
-          </div>
-          <div className={styles.imageItem}>
-            <div className={styles.imageBox}>
-              <Image
-                width={100}
-                height={100}
-                src="https://images-na.ssl-images-amazon.com/images/I/81wUWVAiWDL._AC_SL1500_.jpg"
-              />
-            </div>
-            <div className={styles.imageTitle}>图片.jpg</div>
-          </div>
-          <div className={styles.imageItem}>
-            <div className={styles.imageBox}>
-              <Image
-                width={100}
-                height={100}
-                src="https://images-na.ssl-images-amazon.com/images/I/81wUWVAiWDL._AC_SL1500_.jpg"
-              />
-            </div>
-            <div className={styles.imageTitle}>图片.jpg</div>
-          </div>
-          <div className={styles.imageItem}>
-            <div className={styles.imageBox}>
-              <Image
-                width={100}
-                height={100}
-                src="https://images-na.ssl-images-amazon.com/images/I/81wUWVAiWDL._AC_SL1500_.jpg"
-              />
-            </div>
-            <div className={styles.imageTitle}>图片.jpg</div>
-          </div>
-          <div className={styles.imageItem}>
-            <div className={styles.imageBox}>
-              <Image
-                width={100}
-                height={100}
-                src="https://images-na.ssl-images-amazon.com/images/I/81wUWVAiWDL._AC_SL1500_.jpg"
-              />
-            </div>
-            <div className={styles.imageTitle}>图片.jpg</div>
-          </div>
-          <div className={styles.imageItem}>
-            <div className={styles.imageBox}>
-              <Image
-                width={100}
-                height={100}
-                src="https://images-na.ssl-images-amazon.com/images/I/81wUWVAiWDL._AC_SL1500_.jpg"
-              />
-            </div>
-            <div className={styles.imageTitle}>图片.jpg</div>
-          </div>
-          <div className={styles.imageItem}>
-            <div className={styles.imageBox}>
-              <Image
-                width={100}
-                height={100}
-                src="https://images-na.ssl-images-amazon.com/images/I/81wUWVAiWDL._AC_SL1500_.jpg"
-              />
-            </div>
-            <div className={styles.imageTitle}>图片.jpg</div>
-          </div>
-          <div className={styles.imageItem}>
-            <div className={styles.imageBox}>
-              <Image
-                width={100}
-                height={100}
-                src="https://images-na.ssl-images-amazon.com/images/I/81wUWVAiWDL._AC_SL1500_.jpg"
-              />
-            </div>
-            <div className={styles.imageTitle}>图片.jpg</div>
-          </div>
-          <div className={styles.imageItem}>
-            <div className={styles.imageBox}>
-              <Image
-                width={100}
-                height={100}
-                src="https://images-na.ssl-images-amazon.com/images/I/81wUWVAiWDL._AC_SL1500_.jpg"
-              />
-            </div>
-            <div className={styles.imageTitle}>图片.jpg</div>
-          </div>
-          <div className={styles.imageItem}>
-            <div className={styles.imageBox}>
-              <Image
-                width={100}
-                height={100}
-                src="https://images-na.ssl-images-amazon.com/images/I/81wUWVAiWDL._AC_SL1500_.jpg"
-              />
-            </div>
-            <div className={styles.imageTitle}>图片.jpg</div>
-          </div>
-          <div className={styles.imageItem}>
-            <div className={styles.imageBox}>
-              <Image
-                width={100}
-                height={100}
-                src="https://images-na.ssl-images-amazon.com/images/I/81wUWVAiWDL._AC_SL1500_.jpg"
-              />
-            </div>
-            <div className={styles.imageTitle}>图片.jpg</div>
-          </div>
-          <div className={styles.imageItem}>
-            <div className={styles.imageBox}>
-              <Image
-                width={100}
-                height={100}
-                src="https://images-na.ssl-images-amazon.com/images/I/81wUWVAiWDL._AC_SL1500_.jpg"
-              />
-            </div>
-            <div className={styles.imageTitle}>图片.jpg</div>
-          </div>
-          <div className={styles.imageItem}>
-            <div className={styles.imageBox}>
-              <Image
-                width={100}
-                height={100}
-                src="https://images-na.ssl-images-amazon.com/images/I/81wUWVAiWDL._AC_SL1500_.jpg"
-              />
-            </div>
-            <div className={styles.imageTitle}>图片.jpg</div>
-          </div>
+          {data?.list.map((item) => {
+            return (
+              <div className={styles.imageItem} key={item.fileId}>
+                <div className={styles.imageBox} onClick={() => handleClickImage(item as any)}>
+                  <Image width={100} height={100} src={item.filePath} />
+                  <div className={styles.imageMask}>
+                    <span className={styles.imageSize}>{`${item.pixelX}x${item.pixelY}`}</span>
+                  </div>
+                </div>
+                <div className={styles.imageTitle}>图片.jpg</div>
+              </div>
+            );
+          })}
         </div>
         <div className={styles.photoSelectorFooter}>
-          <Pagination showSizeChanger={false} size="small" total={100} />
+          <Pagination {...(pagination as any)} pageSize={15} showSizeChanger={false} size="small" />
         </div>
       </div>
     </div>

@@ -105,7 +105,7 @@ const MediaGallery = (props: MediaSelectorProps) => {
         current,
         pageSize,
       });
-      setData(newData.data);
+      setData(newData.list);
       setTotal(newData.total);
       setLoading(false);
     }

@@ -1,5 +1,6 @@
 import { Money, UnitType, Weight } from '@/typings';
 import { ItemAttributesType } from './attribute';
+import { ImageFile } from './media';
 
 /** 商品状态 */
 export enum ItemStatus {
@@ -103,13 +104,6 @@ export interface FreightTemplateType {
   isDefault: boolean;
 }
 
-/**
- * 图片对象
- */
-export interface ImageType {
-  url: string;
-}
-
 export enum LogisticFeeType {}
 
 /**
@@ -189,7 +183,7 @@ export interface ItemEditType {
   /** 销售库存 */
   saleStock: number;
   /** 图片 */
-  images: ImageType[];
+  images: ImageFile[];
   /** 是否有变体 */
   hasVariation: boolean;
   /** 发货时间 */

@@ -14,7 +14,7 @@ export type UploadStatus = 'SUCCESS' | 'ERROR' | 'NONE';
  * 图片文件
  */
 export interface ImageFile {
-  imageId?: number;
+  imageId?: number | string;
   imageUrl?: string;
 }
 

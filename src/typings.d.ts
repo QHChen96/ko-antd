@@ -94,7 +94,8 @@ export interface ProductSku {
 }
 
 export interface RequestData<T> {
-  data: T;
+  data?: T;
+  list?: T[];
   success?: boolean;
   total?: number;
   [key: string]: any;

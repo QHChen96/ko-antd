@@ -1,13 +1,13 @@
+import { MediaFile, MediaFileRequestParams } from '@/services/media';
 import { Request, Response } from 'express';
 import { parse } from 'url';
-import { MediaFile, MediaFileRequestParams } from '@/components/MediaSelector/data';
 
 const genList = (current: number, pageSize: number) => {
   const list: MediaFile[] = [];
   for (let i = 0; i < pageSize; i += 1) {
     const index = (current - 1) * 10 + i;
     list.push({
-      fileId: index,
+      fileId: index + 1,
       fileType: 'img',
       fileName: `${index}商品图片商品图片商品`,
       folderId: 0,
@@ -48,7 +48,7 @@ function getPhoto(req: Request, res: Response, u: string) {
     dataSource = dataSource.filter((data) => data.fileName.includes(params.fileName || ''));
   }
   const result = {
-    data: dataSource,
+    list: dataSource,
     total: photoDataSource.length,
     success: true,
     pageSize: parseInt(`${pageSize}`, 10),

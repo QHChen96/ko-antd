@@ -60,7 +60,16 @@ const attrList: ItemAttr[] = [
   },
 ];
 
-const imageTitles = ['封面图片', '图片 1', '图片 2', '图片 3', '图片 4', '图片 5', '图片 6', '图片 7'];
+const imageTitles = [
+  '封面图片',
+  '图片 1',
+  '图片 2',
+  '图片 3',
+  '图片 4',
+  '图片 5',
+  '图片 6',
+  '图片 7',
+];
 
 export default (): React.ReactNode => {
   const [form] = Form.useForm();
@@ -163,14 +172,10 @@ export default (): React.ReactNode => {
             </FormItem>
           </ProCard>
           <ProCard title="图文描述" collapsible style={{ marginTop: '8px' }}>
-            <FormItem label="商品图片">
+            <FormItem label="商品图片" name="images">
               <ImagesUpload imageTitles={imageTitles} />
             </FormItem>
-            <FormItem label="尺码表">
-              <ImageUpload imageTitle="尺码表" />
-            </FormItem>
           </ProCard>
-
           <ProCard title="运费" collapsible style={{ marginTop: '8px' }}>
             <FormItem label="重量">
               <UnitInput className={styles.smallInput} suffix={<Text type="secondary">kg</Text>} />

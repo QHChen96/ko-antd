@@ -16,6 +16,8 @@
     display: flex;
     flex-direction: column;
     .photoSelectorToolbar {
+      height: 32px;
+      line-height: 32px;
       display: flex;
       flex-direction: row-reverse;
     }
@@ -33,6 +35,26 @@
           width: 100%;
           height: 100px;
           vertical-align: middle;
+          position: relative;
+          .imageMask {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            .imageSize {
+              display: block;
+              text-align: center;
+              bottom: 0;
+              left: 0;
+              right: 0;
+              font-size: 12px;
+              position: absolute;
+              line-height: 24px;
+              background: rgba(0, 0, 0, .5);
+              color: #f3f3f3;
+            }
+          }
         }
         .imageTitle {
           font-size: 12px;
