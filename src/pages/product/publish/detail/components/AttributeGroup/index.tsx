@@ -23,19 +23,19 @@ const itemLayout = {
   },
 };
 
-export interface AttributeInputProps {
+export interface AttributeGroupProps {
   value?: ItemAttributesType;
   onChange?: (value: ItemAttributesType) => void;
   categoryId?: number;
 }
 
-interface AttributeItemProps {
+interface AttributeGroupItemProps {
   item: AttributeType;
   value: ItemAttributeValueType;
   onChange: (attributeId: number, newValue: ItemAttributeValueType) => void;
 }
 
-const AttributeItem = ({ item, onChange, value = {} }: AttributeItemProps) => {
+const AttributeGroupItem = ({ item, onChange, value = {} }: AttributeGroupItemProps) => {
   const { displayName, isMandatory = false, inputType = 'TEXT', options = [] } = item;
 
   const handleTextChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -69,14 +69,14 @@ const AttributeItem = ({ item, onChange, value = {} }: AttributeItemProps) => {
   );
 };
 
-const AttributeInput: React.FC<AttributeInputProps> = ({ value = {}, onChange, categoryId }) => {
+const AttributeGroup: React.FC<AttributeGroupProps> = ({ value = {}, onChange, categoryId }) => {
   const [categoryAttributes, setCategoryAttributes] = useState<AttributeType[]>([]);
   const [cateId] = useState(categoryId);
   useEffect(() => {
     async function fetchCategoryAttributes(queryCategoryId: number) {
       const result = await queryCategoryAttributes(queryCategoryId);
       if (result.success) {
-        setCategoryAttributes(result.data);
+        setCategoryAttributes(result.data || []);
       } else {
         setCategoryAttributes([]);
       }
@@ -101,7 +101,7 @@ const AttributeInput: React.FC<AttributeInputProps> = ({ value = {}, onChange, c
       <Row gutter={24} justify="center">
         <Col span={12}>
           {categoryAttributes.slice(0, mid).map((item) => (
-            <AttributeItem
+            <AttributeGroupItem
               key={item.attributeId}
               item={item}
               value={value[item.attributeId]}
@@ -111,7 +111,7 @@ const AttributeInput: React.FC<AttributeInputProps> = ({ value = {}, onChange, c
         </Col>
         <Col span={12}>
           {categoryAttributes.slice(mid, categoryAttributes.length).map((item) => (
-            <AttributeItem
+            <AttributeGroupItem
               key={item.attributeId}
               item={item}
               value={value[item.attributeId]}
@@ -124,4 +124,4 @@ const AttributeInput: React.FC<AttributeInputProps> = ({ value = {}, onChange, c
   );
 };
 
-export default AttributeInput;
+export default AttributeGroup;

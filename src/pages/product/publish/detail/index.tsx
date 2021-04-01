@@ -10,11 +10,11 @@ import { useBoolean } from 'ahooks';
 import { ItemType } from '@/services/item';
 import CategoryInput from '@/components/CategoryInput';
 import { isEqual } from 'lodash';
-import ImagesUpload, { ImageUpload } from './components/ImageUploads';
+import ImagesUpload from './components/ImageUploads';
 import FreightSelector from './components/FreightSelector/index';
 import SpecEditor from './components/SpecEditor';
 import SkuEditor from './components/SkuEidtor';
-import AttributeInput from './components/AttributeInput/index';
+import AttributeGroup from './components/AttributeGroup/index';
 
 // @ts-ignore
 import styles from './index.less';
@@ -43,16 +43,6 @@ const attrList: ItemAttr[] = [
   {
     label: '品牌',
     type: 'select',
-    options: [
-      {
-        label: 'NICK',
-        value: 'NICK',
-      },
-      {
-        label: 'FILA',
-        value: 'FILA',
-      },
-    ],
   },
   {
     label: '保存期限',
@@ -75,7 +65,7 @@ export default (): React.ReactNode => {
   const [form] = Form.useForm();
   const [warnLeave] = useBoolean(true);
 
-  const [editItem, setEditItem] = useState<Partial<ItemType>>({
+  const [editItem] = useState<Partial<ItemType>>({
     categoryId: 19451,
     attributes: {},
     tierVariations: [],
@@ -91,7 +81,7 @@ export default (): React.ReactNode => {
     <>
       <Prompt when={warnLeave} message="你确定要离开么？" />
       <Form.Provider>
-        <Form initialValues={{ ...editItem }} {...layout} form={form}>
+        <Form initialValues={{ ...editItem }} {...layout} form={form} scrollToFirstError>
           <ProCard title="基本信息" collapsible>
             <FormItem
               label="商品名称"
@@ -122,7 +112,7 @@ export default (): React.ReactNode => {
                 const cateId = getFieldValue('categoryId');
                 return (
                   <FormItem name="attributes">
-                    <AttributeInput categoryId={cateId} />
+                    <AttributeGroup categoryId={cateId} />
                   </FormItem>
                 );
               }}
@@ -181,8 +171,8 @@ export default (): React.ReactNode => {
               <UnitInput className={styles.smallInput} suffix={<Text type="secondary">kg</Text>} />
             </FormItem>
 
-            <FormItem label="包装">
-              <DimensionInput />
+            <FormItem label="包装" name="dimension" rules={[{ required: true, message: '请输入' }]}>
+              <DimensionInput unit="cm" />
             </FormItem>
 
             <FormItem label="运费">
